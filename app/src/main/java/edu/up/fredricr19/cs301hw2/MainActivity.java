@@ -30,8 +30,6 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        layout = (LinearLayout)findViewById(R.id.frameLayout);
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
@@ -40,8 +38,6 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         view = (SurfaceView)findViewById(R.id.surfaceView);
         SurfaceHolder surfaceHolder = view.getHolder();
         surfaceHolder.setFixedSize(width, height/2);
-
-        //layout.addView(view);
 
         redSeekbar = (SeekBar)findViewById(R.id.red);
         greenSeekbar = (SeekBar)findViewById(R.id.green);
