@@ -55,6 +55,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         greenSeekbar.setOnSeekBarChangeListener(this);
         blueSeekbar.setOnSeekBarChangeListener(this);
 
+        view.invalidate();
+
         currColor = Color.argb(255, redVal, greenVal, blueVal);
         //paint.setColor(currColor);
     }
