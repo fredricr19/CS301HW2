@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CS301 HW2</string>
+    <string name="textview">Starting Text View</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+</resources>
