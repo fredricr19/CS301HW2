@@ -30,23 +30,28 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Gets height and width of the screen
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
         int width = displayMetrics.widthPixels;
 
+        //Defines the surfaceview
         view = (SurfaceView)findViewById(R.id.surfaceView);
         SurfaceHolder surfaceHolder = view.getHolder();
-        surfaceHolder.setFixedSize(width, height/2);
+        surfaceHolder.setFixedSize(width, height/2); //Sets size of SurfaceView
 
+        //Declares the seekbars
         redSeekbar = (SeekBar)findViewById(R.id.red);
         greenSeekbar = (SeekBar)findViewById(R.id.green);
         blueSeekbar = (SeekBar)findViewById(R.id.blue);
 
+        //Sets max for seekbars
         redSeekbar.setMax(255);
         greenSeekbar.setMax(255);
         blueSeekbar.setMax(255);
 
+        //Defines the seekbar listeners
         redSeekbar.setOnSeekBarChangeListener(this);
         greenSeekbar.setOnSeekBarChangeListener(this);
         blueSeekbar.setOnSeekBarChangeListener(this);
@@ -54,11 +59,11 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         view.invalidate();
 
         currColor = Color.argb(255, redVal, greenVal, blueVal);
-        //paint.setColor(currColor);
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        //Changes seekbar value
         if(seekBar == redSeekbar){
             redVal = progress;
         }else if(seekBar == greenSeekbar){
@@ -67,13 +72,18 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
             blueVal = progress;
         }
 
+        //Changes currColor value
         currColor = Color.argb(255, redVal, greenVal, blueVal);
-        //paint.setColor(currColor);
+
+        //Invalidates the screen
+        view.invalidate();
     }
 
+    //Not used
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) { }
 
+    //Not used
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) { }
 }
