@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 
 public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
     SurfaceView view;
+    LinearLayout layout;
 
     SeekBar redSeekbar;
     SeekBar greenSeekbar;
@@ -28,6 +30,8 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        layout = (LinearLayout)findViewById(R.id.frameLayout);
+
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
@@ -37,6 +41,7 @@ public class MainActivity extends Activity implements SeekBar.OnSeekBarChangeLis
         SurfaceHolder surfaceHolder = view.getHolder();
         surfaceHolder.setFixedSize(width, height/2);
 
+        //layout.addView(view);
 
         redSeekbar = (SeekBar)findViewById(R.id.red);
         greenSeekbar = (SeekBar)findViewById(R.id.green);
